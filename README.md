@@ -61,3 +61,42 @@
 - 5. **Linux kernel**：Android 系统建立在 Linux 2.6 之上。
   - 提供了安全性、内存管理、进程管理、网络协议栈和驱动模型等核心系统服务
   - 系统硬件和软件叠层之间的抽象层
+
+## 搭建 Android 开发环境
+
+### 0. JDK安装并配置
+
+- 环境变量配置：`JAVA_HOME`
+
+### 1. Eclise + ADT
+
+### 2. Android Studio
+
+> Google 基于 IntelliJ IDEA 基础的推出的 Android 开发环境
+
+[Android Studio](http://developer.android.com/sdk/)
+
+- Android Studio 项目相当于一个工作空间，一个工作空间可以包含多个模块，每个模块对应一个 Android 项目
+
+- 新建项目
+- 选择 SDK 最低版本要求：**API 21 Android 5.0**
+- Activity：与用户交互的组件（界面编程的窗口）
+
+### 下载和安装 Android SDK
+
+> 最新版本的 Android Studio 自动下载的 Android SDK往往不是最新版。
+
+[Anroid SDK 下载](http://www.android.com)
+
+- android-sdk-PLATFORM
+  - add-ons: 第三方公司为 Android 平台开发的附加功能系统
+  - platforms: 不同版本的 Android 系统
+  - tools：开发和调试工具
+  - AVD Manager.exe：虚拟设备管理器
+  - SDK Manager.exe: SDK 管理器(运行该程序无法显示列表)
+    - 1. Tools -> Options (勾选 Force)
+    - 2. 修改 windows/System32/drivers/etc/hosts
+      - 203.208.46.146 dl.google.com 
+      - 203.208.46.146 dl-ssl.google.com
+  - docs: SDK开发文件和API文档
+  - 
