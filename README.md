@@ -99,4 +99,128 @@
       - 203.208.46.146 dl.google.com 
       - 203.208.46.146 dl-ssl.google.com
   - docs: SDK开发文件和API文档
-  - 
+  - extras: Google提供的 USB驱动，Intel 提供的硬件加速等附加工具包
+  - platform-tools: 平台相关工具
+  - samples: 实例程序
+  - sources: Android 5.0 源代码
+  - system-images: 对不同CPU架构提供的系统镜像
+
+建议：将Android SDK目录下的 tools 子目录、platform-tools 子目录添加到系统的 PATH 环境变量
+
+- 设置：file -> Other Settings -> Default Project Structure
+  - 第一个：Android SDK 的安装路径
+  - 第二个：JDK安装路径会根据 JAVA_HOME 环境变量自动设置
+
+### 安装运行、调试环境
+
+> Android 程序必须在 Android 手机上运行，因此 开发时必须准备相关的运行、调试环境环境
+
+1. Android 真机（速度更快、效果更好）
+2. 配置 Android 虚拟设备（AVD）
+3. Genymotion 模拟器
+
+#### 真机运行、调试环境
+
+1. USB 连接线将 Android 手机连接到电脑上
+2. 电脑上安装手机安装驱动。到手机商场官网下载手机驱动（仅识别 Android 手机存储卡不够的，安装驱动才能把 Android 手机整合成运行、调试环境）
+3. 打开手机调试模式：Dev Tools -> 开发者选项，勾选 "Always stay awake"，“USB 调试”，“允许模拟设置”3个选项即可。
+
+#### 配置 Android 虚拟设备（AVD）
+
+- Android SDK 设置环境变量：ADNROID_SDK_HOME=XXX, 如果不设置该环境变量，开发者创建的虚拟设备默认保存在 “C:\<user-name>\.android ”目录，如果设置了，则虚拟设备会保存在`%ANDROID_SDK_HOME%\.android` 路径下
+
+#### Genymotion 模拟器
+
+[Genymotion](https://www.genymotion.com)
+
+Custom Phone - 5.0.0 - API 21 - 768x1280
+
+### Anroid 常用开发工具的用法
+
+#### 命令行创建、删除和浏览 AVD
+
+> Android SDK/tools 
+
+- android list: 列出所有 Android 版本和 AVD 设备
+- android list avd：列出已经安装的 AVD 设备
+- android list target：已经安装的 Android 设备
+- android create avd：创建一个 AVD 设备
+- android move avd：移动或重命名一个 AVD 设备
+- android delete avd: 删除一个 AVD 设备
+- android update avd: 升级一个 AVD 设备之符合新的 SDK 环境
+- android create project: 创建新的 Android 项目
+- android update project: 更新一个已有的 Android 项目
+- android create test-project: 创建一个新的 Android 测试项目
+- android update test-project: 更新一个已有的 Android 测试项目
+
+创建全新的 AVD 设备：`android create avd -n <avd名称> -t <Andorid版本> -b <CPU架构》 -p <AVD设备保存位置> -s <选择AVD皮肤>`
+
+`-n`和`-t`选项是必须的，其他都是可选的
+
+`android create avd -n crzyit -t 21 -b armeabi-v7a` 会提示是否需要定制 AVD
+
+%ANDROID_SDK_HOME%/.adnroid/avd
+
+- fkjava.avd/fkjava.ini: AVD的基本信息和AVD设备。fkjava.avd 目录下有一个 userdata.img 文件它是AVD中用户数据的镜像，还有一个 sdcard.img 文件，它是该AVD所使用的虚拟SD卡的镜像。
+- crazyit.avd/crazyit.ini: ...
+
+#### Android 模拟器 （Emulator）
+
+Android SDK/tools/emulator.exe
+
+- 使用 emulator.exe 启动模拟器
+  - `emulator -avd crzyit` 运行名为 crzyit 的 AVD 设备
+  - `emulator -data myfile` 以 myfile 作为镜像文件来运行 AVD 设备
+
+#### Monitor 进行调试
+
+> 监视 Android 设备的运行
+
+`monibor.bat`
+
+- 设备面板：列出当前所有运行的手机（包括真机和模拟器）、并列出手机内的所有进程信息
+- 信息输出面板：Monitor 窗口的下方，相当于 Java 应用控制台
+- 线程跟踪面板：查看指定进程内所有正在执行的线程状态
+- Heap 内存跟踪面板：查看指定进程内堆内存的分配和回收信息。
+  - 限制指定进程内 Heap 的回收和分配状态
+    - 1. 选中需要查看的进程
+    - 2. 点击 Update Heap 按钮
+- 模拟器控制面板：模拟器拨打电话、发送短信和模拟器的虚拟位置
+- 文件管理器面板：查看 Android 设备所包含的文件
+
+#### ABD - Android Debug Bridge
+
+> Android SDK/platform-tools，完成模拟器文件与电脑文件的相互复制，也可安装 APK应用，还可以直接切换到Android 系统中执行 Linux 命令
+
+- 查看当前运行的模拟器：`adb devices`
+- 电脑与手机之间文件的相互复制：模拟人生是操作当前正在运行的模拟器
+  - 电脑文件复制到模拟器中：`adb push d:\abc.txt /sdcard/`
+  - 模拟器文件复制到电脑上：`adb pull /sdcar/abc.txt d:\`
+
+- 启动模拟器的 shell 窗口：打开 Android 平台的 shell 窗口，并执行一些 Linux 命令
+  - `adb shell`
+
+- 安装、卸载 APK 程序：Android 应用打包成 APK 包
+  - adb install [-r]重新安装 [-s]安装到SD卡（默认安装内存存储器上） file
+  - `adb install test.apk`
+  - `adb uninstall [-k] <package>` 删除指定软件包
+    - -k: 只删除该应用程序，但保留该程序所用的数据䄦缓存目录 
+
+#### mksdcard 管理虚拟SDK卡
+
+> 创建 AVD 设备时创建一个虚拟 SDK卡。还可以使用 mksdcard 命令来单独创建一个虚拟存储卡
+
+`mksdcard [-l label] <size> <file>`
+
+- size: SD卡大小
+- file: SD卡文件镜像
+
+mksdcard 64M D:\avds\.android\avd\wovert.avd\sdcard.img
+
+启动模拟器时指定虚拟SD卡：`emulator -avd crzyit -sdcard d:\sdcard.img`
+
+## 第一个Android 应用
+
+1. Android项目或Android 模块
+2. XML布局文件中定义应用程序的用户界面
+3. Java代码编写业务实现
