@@ -2,6 +2,25 @@
 
 ## Android 的发展和历史
 
+### Android 进化史
+
+- 1.5 Cupcake(纸杯蛋糕) —— API 3
+- 1.6 Donut(甜甜圈) —— API 4
+- 2.1 Eclair(闪电泡芙) —— API 7
+- 2.2 Froyo(冻酸奶) —— API 8
+- 2.3 Gingerbread(姜饼) —— API 9
+- 3.0 Honeycomb(蜂巢) —— API 11
+- 4.0 Ice cream SandWich(冰淇淋三明治) —— API 14
+- 4.1 Jelly Bean(果冻豆) —— API 16
+- 4.2 Jelly Bean(果冻豆) —— API 17
+- 4.3 Jelly Bean(果冻豆) —— API 18
+- 4.4 Kitkat(雀巢的一款巧克力) —— API 20
+- 5.0 Lollipop(棒棒糖) Android L —— API 21
+- 6.0 Marshmallow(棉花糖) Android M —— API 23
+- 7.0 Nougat(牛轧糖)（Android N） —— API 24
+- 8.0 Oreo(奥利奥)（Android O） —— API 26
+- 9.0 Pie(馅饼) （Android P） —— API 28
+
 ### Android的发展和简介
 
 1. Android 公司的创始人 Andy Rubin
@@ -224,3 +243,15 @@ mksdcard 64M D:\avds\.android\avd\wovert.avd\sdcard.img
 1. Android项目或Android 模块
 2. XML布局文件中定义应用程序的用户界面
 3. Java代码编写业务实现
+
+## 项目架构部署
+
+- Package
+- Application
+- Activity
+- Drawable
+- Values
+- UtilTools
+- StaticClass
+
+
