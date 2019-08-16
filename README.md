@@ -81,7 +81,13 @@
   - 提供了安全性、内存管理、进程管理、网络协议栈和驱动模型等核心系统服务
   - 系统硬件和软件叠层之间的抽象层
 
-![android 体系结构](./images/android-structure)
+![android 体系结构](./images/android-structure.png)
+
+### Dalvik VM VS JVM
+
+![DVM vs JVM](./images/dvm_vs_jvm.png)
+
+![DVM vs JVM](./images/dvm_vs_jvm2.png)
 
 ## 搭建 Android 开发环境
 
@@ -131,6 +137,9 @@
 - 设置：file -> Other Settings -> Default Project Structure
   - 第一个：Android SDK 的安装路径
   - 第二个：JDK安装路径会根据 JAVA_HOME 环境变量自动设置
+
+![Android 结构目录](./images/android_dir.png)
+
 
 ### 安装运行、调试环境
 
