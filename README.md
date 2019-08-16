@@ -169,7 +169,7 @@ Custom Phone - 5.0.0 - API 21 - 768x1280
 
 #### 命令行创建、删除和浏览 AVD
 
-> Android SDK/tools 
+> Android SDK/tools
 
 - android list: 列出所有 Android 版本和 AVD 设备
 - android list avd：列出已经安装的 AVD 设备
@@ -252,17 +252,17 @@ mksdcard 64M D:\avds\.android\avd\wovert.avd\sdcard.img
 ## 第一个Android 应用
 
 1. Android项目或Android 模块
+  - Target SDK: 项目运行在哪个版本上
+  - Compile Width: 项目编译环境 
 2. XML布局文件中定义应用程序的用户界面
 3. Java代码编写业务实现
 
-## 项目架构部署
+## 项目架构目录结构
 
-- Package
-- Application
-- Activity
-- Drawable
-- Values
-- UtilTools
-- StaticClass
-
-
+- app 模块名
+  - libs 第三方 jar 包
+  - src 源码目录
+    - main
+      - java
+      - res 资源目录
+        - layout 布局目录
