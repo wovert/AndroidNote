@@ -174,6 +174,21 @@
 2. 电脑上安装手机安装驱动。到手机商场官网下载手机驱动（仅识别 Android 手机存储卡不够的，安装驱动才能把 Android 手机整合成运行、调试环境）
 3. 打开手机调试模式：Dev Tools -> 开发者选项，勾选 "Always stay awake"，“USB 调试”，“允许模拟设置”3个选项即可。
 
+```
+$ system_profiler SPUSBDataType
+Vendor ID: 0x2717
+
+$ vim ~/.android/adb_usb.ini
+0x2717
+
+$ adb kill-server
+$ adb start-server
+$ adb devices
+List of devices attached
+BYGIF6OBYPT4RGDI device
+```
+
+
 #### 配置 Android 虚拟设备（AVD）
 
 - Android SDK 设置环境变量：ADNROID_SDK_HOME=XXX, 如果不设置该环境变量，开发者创建的虚拟设备默认保存在 “C:\<user-name>\.android ”目录，如果设置了，则虚拟设备会保存在`%ANDROID_SDK_HOME%\.android` 路径下
