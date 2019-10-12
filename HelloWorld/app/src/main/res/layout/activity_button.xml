@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="15dp"
+    tools:context=".ButtonActivity">
+    <Button
+        android:id="@+id/btn_1"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="按钮1"
+        android:textSize="20sp"
+        android:textColor="#ffffff"
+        android:background="#ff0000"/>
+    <Button
+        android:id="@+id/btn_2"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="按钮2-圆角背景"
+        android:textSize="20sp"
+        android:textColor="#ffffff"
+        android:background="@drawable/bg_btn_2"
+        android:layout_below="@id/btn_1"
+        android:layout_marginTop="10dp" />
+    <Button
+        android:id="@+id/btn_3"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="按钮3-描边"
+        android:textSize="20sp"
+        android:textColor="#ff9900"
+        android:background="@drawable/bg_btn_3"
+        android:layout_below="@id/btn_2"
+        android:layout_marginTop="10dp" />
+    <Button
+        android:id="@+id/btn_shadow"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="按钮4-shadow"
+        android:textSize="20sp"
+        android:textColor="#ffffff"
+        android:background="@drawable/bg_btn_4"
+        android:layout_below="@id/btn_3"
+        android:layout_marginTop="10dp"
+        android:onClick="showToast" />
+    <TextView
+        android:id="@+id/text_btn"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="文本按钮"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textColor="#ffffff"
+        android:background="@drawable/bg_btn_4"
+        android:layout_below="@id/btn_shadow"
+        android:layout_marginTop="10dp" />
+</RelativeLayout>

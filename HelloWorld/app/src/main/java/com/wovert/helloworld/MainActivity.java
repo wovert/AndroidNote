@@ -2,6 +2,7 @@ package com.wovert.helloworld;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,7 +11,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button mBtnTextView;
+    private Button mBtnTextView, mBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +28,15 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // 跳转到TextView演示界面
                 Intent intent = new Intent(MainActivity.this, TextViewActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        mBtn = (Button) findViewById(R.id.btn_1);
+        mBtn.setOnClickListener(new View.OnClickListener() {
+            // 跳转到 button演示界面
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ButtonActivity.class);
                 startActivity(intent);
             }
         });
