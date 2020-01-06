@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RadioButtonActivity">
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Radio Button" />
+
+    <RadioGroup
+        android:id="@+id/gender"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title">
+        <RadioButton
+            android:id="@+id/male"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="男"
+            android:textSize="18sp"
+            android:textColor="#ff6600"
+            android:checked="true"
+            />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="女"
+            android:textSize="18sp"
+            android:textColor="#ff6600"
+            />
+
+    </RadioGroup>
+    <RadioGroup
+        android:id="@+id/hoby"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/gender">
+        <RadioButton
+            android:id="@+id/football"
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:text="足球"
+            android:textSize="18sp"
+            android:textColor="#000"
+            android:checked="true"
+            android:button="@null"
+            android:background="@drawable/selector_orange"
+            />
+        <RadioButton
+            android:id="@+id/basketball"
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:text="篮球"
+            android:textSize="18sp"
+            android:textColor="#000"
+            android:button="@null"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/selector_orange"
+            />
+
+    </RadioGroup>
+</RelativeLayout>

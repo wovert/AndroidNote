@@ -29,7 +29,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="筛选"
-        android:drawableRight="@drawable/down"
+        android:drawableRight="@drawable/icon_down"
         android:textColor="#000000"
         android:textSize="24sp"
         android:layout_marginTop="10dp"/>

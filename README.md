@@ -174,13 +174,24 @@
 2. 电脑上安装手机安装驱动。到手机商场官网下载手机驱动（仅识别 Android 手机存储卡不够的，安装驱动才能把 Android 手机整合成运行、调试环境）
 3. 打开手机调试模式：Dev Tools -> 开发者选项，勾选 "Always stay awake"，“USB 调试”，“允许模拟设置”3个选项即可。
 
-```
-$ system_profiler SPUSBDataType
-Vendor ID: 0x2717
+1. 查看usb设备信息
 
+```sh
+$ system_profiler SPUSBDataType
+  Vendor ID: 0x2717
+```
+
+2. 创建、修改adb_usb.ini文件。输入：`vim ~/.android/adb_usb.ini` 命令，在打开的 adb_usb.ini文件中添加0x18d1， （然后保存退出）
+然后请一定重启finder ：鼠标单击窗口左上角的苹果标志-->强制退出-->Finder-->重新启动
+
+```sh
 $ vim ~/.android/adb_usb.ini
 0x2717
+```
 
+3. 重启adb
+
+```sh
 $ adb kill-server
 $ adb start-server
 $ adb devices
@@ -283,6 +294,34 @@ mksdcard 64M D:\avds\.android\avd\wovert.avd\sdcard.img
 
 启动模拟器时指定虚拟SD卡：`emulator -avd crzyit -sdcard d:\sdcard.img`
 
+## 签名->打包->发布
+
+- Build -> Generate Signed Bundle or APK -> APK -> ...
+
+## 应用配置
+
+- 版本号(src/man/AndroidManifest.xml)
+```xml
+<manifest
+    android:versionName="1.0.0"
+```
+- src/build.gradle
+  - versionName "1.0.0"
+
+- 应用图标(src/man/AndroidManifest.xml)
+```xml
+  <application
+        android:icon="@mipmap/ic_launcher"
+```
+
+
+- command + n : 自动显示constructor/getter/setter
+- command + alt + c : 字符串字面量设置
+- ctrl + r: 运行程序
+- command + option + f : 全局变量设置
+- command + o : 快速查找类
+
+
 ## 第一个Android 应用
 
 1. Android项目或Android 模块
@@ -290,6 +329,29 @@ mksdcard 64M D:\avds\.android\avd\wovert.avd\sdcard.img
   - Compile Width: 项目编译环境 
 2. XML布局文件中定义应用程序的用户界面
 3. Java代码编写业务实现
+
+
+## Activity 生命周期
+
+- onCreate()
+- onStart()
+- onResume()
+- onPause()
+- onStop()
+- onDestory()
+- onRestart()
+
+## 优化布局
+
+- 减少层次
+- 删除无用布局
+- 布局结构要清晰
+- 选择合适的布局
+
+- 小技巧
+  - 不要嵌套多个使用 layout_weight 属性的 LinearLayout (等分需要消耗计算)
+  - Android init
+  - HierarchyViewer
 
 ## 项目架构目录结构
 
@@ -300,3 +362,4 @@ mksdcard 64M D:\avds\.android\avd\wovert.avd\sdcard.img
       - java
       - res 资源目录
         - layout 布局目录
+
